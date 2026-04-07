@@ -257,11 +257,6 @@ git blame     → track line changes
 
 ---
 
-# 🧑‍💻 Author
-
-**Git Learning Journey 🚀**
-Hands-on practice for DevOps & Git mastery
-
 ---
 # 🚀 Git Learning Notes (Hands-on + Visual Guide)
 
