@@ -1,0 +1,263 @@
+# 🧱 Git Fundamentals & Workflow (Deep Dive)
+
+This section explains **core Git concepts, commands, and real-time usage** with practical examples.
+
+---
+
+# 🧠 Stages of Git (Core Concept)
+
+```text
+Working Directory → Staging Area → Local Repository → Remote Repository
+     (edit)            (add)            (commit)            (push)
+```
+
+### 📌 Explanation
+
+| Stage                | Description                              |
+| -------------------- | ---------------------------------------- |
+| 📝 Working Directory | Where you write/edit code                |
+| 📦 Staging Area      | Where changes are prepared (`git add`)   |
+| 🗂 Local Repository  | Stored in `.git` folder (commit history) |
+| ☁️ Remote Repository | GitHub / remote storage                  |
+
+---
+
+# ⚙️ Setup Git Environment (RHEL / Linux)
+
+```bash
+sudo -s
+mkdir gitproject
+cd gitproject
+
+yum install git -y
+git --version
+```
+
+---
+
+# 🚀 Initialize Repository
+
+```bash
+git init
+```
+
+👉 Creates `.git` directory (stores history + metadata)
+
+```bash
+git status
+```
+
+---
+
+# 📂 First File Workflow
+
+```bash
+touch index.html
+vi index.html
+```
+
+```bash
+git status
+```
+
+🔴 Untracked → not added yet
+
+```bash
+git add index.html
+```
+
+🟢 Tracked (staged)
+
+```bash
+git commit -m "my first commit"
+```
+
+---
+
+# 🧩 Git Flow Diagram
+
+```text
+index.html
+   ↓
+Working Directory
+   ↓ git add
+Staging Area
+   ↓ git commit
+Local Repository (.git)
+```
+
+---
+
+# 📄 Multiple File Commits
+
+```bash
+touch hello.txt
+git add hello.txt
+git commit -m "second commit"
+
+touch test.txt
+git add test.txt
+git commit -m "third commit"
+```
+
+---
+
+# 📌 File Modes in Git
+
+```text
+100644 → Normal file
+100755 → Executable file
+```
+
+---
+
+# 📜 Git Logs & History
+
+```bash
+git log
+git log --oneline
+git log --oneline -2
+git log -p -2
+git log --stat
+```
+
+### Custom Format
+
+```bash
+git log --pretty=format:"%h - %an, %ar : %s"
+```
+
+---
+
+# 🔍 Inspect Changes
+
+```bash
+git show
+git show <commit-id>
+```
+
+---
+
+# 🧾 Git Blame (Line Tracking)
+
+```bash
+git blame index.html
+```
+
+👉 Shows who changed each line
+
+---
+
+# 🔄 Git Diff (Compare Changes)
+
+### Working vs Staging
+
+```bash
+git diff
+```
+
+### Staging vs Repository
+
+```bash
+git diff --staged
+```
+
+### Working vs Last Commit
+
+```bash
+git diff HEAD
+```
+
+### Between Commits
+
+```bash
+git diff <commit1>..<commit2>
+```
+
+---
+
+# 🧩 Diff Visual
+
+```text
+Working Dir ≠ Staging → git diff
+Staging ≠ Repo       → git diff --staged
+Working ≠ Repo       → git diff HEAD
+```
+
+---
+
+# 👤 Git User Configuration
+
+```bash
+git config user.name "your-name"
+git config user.email "your-email"
+```
+
+Check:
+
+```bash
+git config --list
+```
+
+Global config:
+
+```bash
+git config --global --edit
+```
+
+---
+
+# 🔍 Filter Logs by Author
+
+```bash
+git log --author="User"
+```
+
+---
+
+# 📦 Add Multiple Files
+
+```bash
+touch python{1..5}
+git add .
+git commit -m "multiple files"
+```
+
+---
+
+# 🧠 Important Observations
+
+* `.git` folder stores **entire history**
+* `git add` = move to staging
+* `git commit` = save snapshot
+* `git status` = current state
+* `git diff` = compare changes
+
+---
+
+# 🎯 Summary
+
+```text
+git init      → initialize repo
+git add       → stage changes
+git commit    → save snapshot
+git log       → view history
+git diff      → compare changes
+git blame     → track line changes
+```
+
+---
+
+# ⭐ Pro Tips
+
+* Always check `git status` before commit
+* Use `git diff` to avoid mistakes
+* Configure username before committing
+* Keep commits small and meaningful
+
+---
+
+# 🧑‍💻 Author
+
+**Git Learning Journey 🚀**
+Hands-on practice for DevOps & Git mastery
